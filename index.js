@@ -5,6 +5,10 @@ const Intern = require('./lib/intern')
 const inquirer =  require('inquirer')
 const fs = require('fs')
 
+const managerArr = []
+const engineerArr = []
+const internArr = []
+
 function createManager() {
     inquirer
     .prompt([
@@ -36,7 +40,9 @@ function createManager() {
     ])
     .then((answers)=>{
         const manager = new Manager(answers.name, answers.ID, answers.email, 'Manager', answers.office)
+        managerArr.push(manager)
         console.log(manager)
+        inputNextEmployee()
     })
 }
 
@@ -72,6 +78,7 @@ function createNewEmgineer() {
     .then((answers)=>{
     // Write response to employee class 
     const engineer = new Engineer(answers.name, answers.ID, answers.email, answers.github)
+    engineerArr.push(engineer)
     })
 }
 
@@ -107,6 +114,7 @@ function createNewIntern() {
     .then((answers)=>{
     // Write response to employee class 
     const intern = new Intern(answers.name, answers.ID, answers.email, answers.school)
+    internArr.push(intern)
     })
 }
 
