@@ -9,6 +9,35 @@ const managerArr = []
 const engineerArr = []
 const internArr = []
 
+function inputNextEmployee() {
+    inquirer
+    .prompt([
+        {
+            // Choose next input
+            type: 'rawlist',
+            message: "Would you like to add another employee?",
+            name: 'addEmployeeType',
+            choices: [  'Engineer', 'Intern', 'I am done adding employees'
+             ],
+        },
+    ])
+    .then((answers)=>{
+        switch (answers.addEmployeeType){
+            case 'Engineer':
+                createNewEmgineer()
+            break;
+            case 'Intern':
+                createNewIntern()
+            break
+            case 'I am done adding employees':
+                console.log(managerArr)
+                console.log(engineerArr)
+                console.log(internArr)
+        }
+            
+    })
+}
+
 function createManager() {
     inquirer
     .prompt([
