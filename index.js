@@ -5,30 +5,6 @@ const Intern = require('./lib/intern')
 const inquirer =  require('inquirer')
 const fs = require('fs')
 
-function getEmployeeRoleDetails(answers) {
-    console.log(answers)
-    switch(answers.employeeRole) {
-        
-
-        case 'Manager':
-            inquirer
-            .prompt([
-                {
-                    type: 'input',
-                    message: "What is this manager's office number?",
-                    name: 'managerOffice',
-                }
-            ])
-            .then((managerAnswer)=>{
-                answers.push(managerAnswer)
-                console.log(answers)
-            })
-            
-        break
-    
-    }
-}
-
 function createManager() {
     inquirer
     .prompt([
@@ -64,48 +40,75 @@ function createManager() {
     })
 }
 
-
-function createNewEmployee() {
+function createNewEmgineer() {
     inquirer
     .prompt([
         {
             // Get employee name
             type: 'input',
-            message: "What is the employee's name?",
-            name: 'employeeName',
+            message: "What is this employee's name?",
+            name: 'Name',
         },
         {
             // Get employee ID
             type: 'input',
-            message: "What is the employee's ID?",
-            name: 'employeeID',
+            message: "What is their ID?",
+            name: 'ID',
         },
         {
             // Get employee email
             type: 'input',
-            message: "What is the employee's email?",
-            name: 'employeeEmail',
+            message: "What is their email?",
+            name: 'email',
         },
         {
-            // Get employee role
-            type: 'rawlist',
-            message: "What is the employee's role?",
-            name: 'employeeRole',
-            choices: [ 'Manager', 'Engineer', 'Intern' ],
-        }
-       
+            // Get engineer github
+            type: 'input',
+            message: "What is their Github username?",
+            name: 'github',
+        },
+     
     ])
     .then((answers)=>{
-      getEmployeeRoleDetails(answers)
     // Write response to employee class 
-
-    // answers.employeeName = new Employee(answers.employeeName, answers.employeeID, answers.employeeEmail, answers.employeeRole)
-    }
-
-    
-
-    )
-  
+    const engineer = new Engineer(answers.name, answers.ID, answers.email, answers.github)
+    })
 }
+
+function createNewIntern() {
+    inquirer
+    .prompt([
+        {
+            // Get employee name
+            type: 'input',
+            message: "What is this employee's name?",
+            name: 'Name',
+        },
+        {
+            // Get employee ID
+            type: 'input',
+            message: "What is their ID?",
+            name: 'ID',
+        },
+        {
+            // Get employee email
+            type: 'input',
+            message: "What is their email?",
+            name: 'email',
+        },
+        {
+            // Get engineer github
+            type: 'input',
+            message: "What school is this intern from?",
+            name: 'school',
+        },
+     
+    ])
+    .then((answers)=>{
+    // Write response to employee class 
+    const intern = new Intern(answers.name, answers.ID, answers.email, answers.school)
+    })
+}
+
 
 createManager()
