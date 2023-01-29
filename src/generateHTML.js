@@ -3,21 +3,32 @@ const Manager = require('../lib/manager')
 const Engineer = require('../lib/engineer')
 const Intern = require('../lib/intern')
 
-function generateCard(myTeam) {
-    myTeam.forEach(employee => {
-       console.log(employee.getRole())
-    })
-
-    // console.log(Employee.getName())
+function addManager(employee) {
+    let name = employee.getName()
+    let ID = employee.getID()
+    let email = employee.getEmail()
 }
 
-function generateHeading(myTeam) {
+function generateCard(employee) {       
+        switch (employee.getRole()) {
+        case 'Manager':
+            return addManager(employee)
+        case 'Enginer':
+            return addEngineer(employee)
+        case'Intern':
+            return addIntern(employee)
+       }
+    }
 
-};
+
+function generateHeading(myTeam) {
+}
 
 function generateHTML(myTeam) {
     generateHeading(myTeam)
-    generateCard(myTeam)    
+    myTeam.forEach(employee => {
+        generateCard(employee)
+    }); 
 }
 
 
