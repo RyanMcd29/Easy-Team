@@ -11,7 +11,12 @@ const internArr = []
 
 function writeToFile() {
     fileName = `${managerArr[0].name}'s-Team.html`
-
+    // Make copy of template
+    fs.copyFile('./src/template.html', `./dist/${fileName}`, (err) => {
+        if (err) {
+            console.log("Error found:", err)
+        }
+    })
 
 }
 
