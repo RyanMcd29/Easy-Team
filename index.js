@@ -3,14 +3,13 @@ const Manager = require('./lib/manager')
 const Engineer = require('./lib/engineer')
 const Intern = require('./lib/intern')
 const inquirer =  require('inquirer')
+const generateHTML = require('./src/generateHTML')
 const fs = require('fs')
 
-const managerArr = []
-const engineerArr = []
-const internArr = []
+const myTeam = []
 
 function writeToFile() {
-    fileName = `${managerArr[0].name}'s-Team.html`
+    fileName = `${myTeam[0].name}'s-Team.html`
     // Make copy of template
     fs.copyFile('./src/template.html', `./dist/${fileName}`, (err) => {
         if (err) {
@@ -18,6 +17,7 @@ function writeToFile() {
         }
     })
 
+    generateHTML(myTeam, fileName)
 }
 
 function inputNextEmployee() {
@@ -42,9 +42,6 @@ function inputNextEmployee() {
             break
             case 'I am done adding employees':
                 writeToFile()
-                console.log(managerArr)
-                console.log(engineerArr)
-                console.log(internArr)
             break
         }          
     })
@@ -81,8 +78,7 @@ function createManager() {
     ])
     .then((answers)=>{
         const manager = new Manager(answers.name, answers.ID, answers.email, 'Manager', answers.office)
-        managerArr.push(manager)
-        console.log(manager)
+        myTeam.push(manager)
         inputNextEmployee()
     })
 }
@@ -119,7 +115,7 @@ function createNewEmgineer() {
     .then((answers)=>{
     // Write response to employee class 
         const engineer = new Engineer(answers.name, answers.ID, answers.email, answers.github)
-        engineerArr.push(engineer)
+        myTeam.push(engineer)
         inputNextEmployee()
     })
 }
@@ -155,7 +151,7 @@ function createNewIntern() {
     .then((answers)=>{
     // Write response to employee class 
         const intern = new Intern(answers.name, answers.ID, answers.email, answers.school)
-        internArr.push(intern)
+        myTeam.push(intern)
         inputNextEmployee()
     })
 }
