@@ -3,6 +3,8 @@ const Manager = require('../lib/manager')
 const Engineer = require('../lib/engineer')
 const Intern = require('../lib/intern')
 
+var teamHTML = []
+
 function addManager(employee) {
     let name = employee.getName()
     let role = employee.getRole()
@@ -10,11 +12,11 @@ function addManager(employee) {
     let email = employee.getEmail()
     let officeNumber = employee.getOffice()
 
-    return console.log(`
+    return `
 <div class="card" style="width: 18rem;">
 
     <div class="card-header">${name}</div>
-    <div class="card-body>
+    <div class="card-body">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${ID}</li>
             <li class="list-group-item">Email: ${email}</li>
@@ -22,7 +24,6 @@ function addManager(employee) {
          </ul>
     </div>
 </div>`
-    )
 }
 
 function generateCard(employee) {       
@@ -43,8 +44,9 @@ function generateHeading(myTeam) {
 function generateHTML(myTeam) {
     generateHeading(myTeam)
     myTeam.forEach(employee => {
-        generateCard(employee)
-    }); 
+        teamHTML.push(generateCard(employee))
+    })
+    console.log(teamHTML); 
 }
 
 
