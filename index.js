@@ -89,8 +89,8 @@ function createNewEmgineer() {
         {
             // Get employee name
             type: 'input',
-            message: "What is this employee's name?",
-            name: 'Name',
+            message: "What is this engineer's name?",
+            name: 'name',
         },
         {
             // Get employee ID
@@ -114,8 +114,9 @@ function createNewEmgineer() {
     ])
     .then((answers)=>{
     // Write response to employee class 
-        const engineer = new Engineer(answers.name, answers.ID, answers.email, answers.github)
+        const engineer = new Engineer(answers.name, answers.ID, answers.email, 'Engineer', answers.github)
         myTeam.push(engineer)
+        
         inputNextEmployee()
     })
 }
@@ -126,8 +127,8 @@ function createNewIntern() {
         {
             // Get employee name
             type: 'input',
-            message: "What is this employee's name?",
-            name: 'Name',
+            message: "What is this intern's name?",
+            name: 'name',
         },
         {
             // Get employee ID
@@ -142,7 +143,7 @@ function createNewIntern() {
             name: 'email',
         },
         {
-            // Get engineer github
+            // Get intern school
             type: 'input',
             message: "What school is this intern from?",
             name: 'school',
@@ -150,7 +151,7 @@ function createNewIntern() {
     ])
     .then((answers)=>{
     // Write response to employee class 
-        const intern = new Intern(answers.name, answers.ID, answers.email, answers.school)
+        const intern = new Intern(answers.name, answers.ID, answers.email, 'Intern', answers.school)
         myTeam.push(intern)
         inputNextEmployee()
     })
