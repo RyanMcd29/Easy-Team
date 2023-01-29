@@ -9,6 +9,12 @@ const managerArr = []
 const engineerArr = []
 const internArr = []
 
+function writeToFile() {
+    fileName = `${managerArr[0].name}'s-Team.html`
+
+
+}
+
 function inputNextEmployee() {
     inquirer
     .prompt([
@@ -30,11 +36,12 @@ function inputNextEmployee() {
                 createNewIntern()
             break
             case 'I am done adding employees':
+                writeToFile()
                 console.log(managerArr)
                 console.log(engineerArr)
                 console.log(internArr)
-        }
-            
+            break
+        }          
     })
 }
 
@@ -106,8 +113,9 @@ function createNewEmgineer() {
     ])
     .then((answers)=>{
     // Write response to employee class 
-    const engineer = new Engineer(answers.name, answers.ID, answers.email, answers.github)
-    engineerArr.push(engineer)
+        const engineer = new Engineer(answers.name, answers.ID, answers.email, answers.github)
+        engineerArr.push(engineer)
+        inputNextEmployee()
     })
 }
 
@@ -138,12 +146,12 @@ function createNewIntern() {
             message: "What school is this intern from?",
             name: 'school',
         },
-     
     ])
     .then((answers)=>{
     // Write response to employee class 
-    const intern = new Intern(answers.name, answers.ID, answers.email, answers.school)
-    internArr.push(intern)
+        const intern = new Intern(answers.name, answers.ID, answers.email, answers.school)
+        internArr.push(intern)
+        inputNextEmployee()
     })
 }
 
