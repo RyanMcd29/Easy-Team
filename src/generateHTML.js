@@ -28,6 +28,29 @@ function addManager(employee) {
     </div>`
 }
 
+function addEngineer(employee) {
+    let name = employee.getName()
+    let ID = employee.getID()
+    let email = employee.getEmail()
+    let github = employee.getGithub()
+
+    return `
+    <div class="card mb-3" style="width: 18rem;">
+    <div class="text-bg-primary">
+      <h3 class="card-title px-4 pt-4">${name}</h3>
+      <h4 class="card-title px-4 py-0">🧰 Engineer</h4>
+
+    </div>
+
+    <div class="card-body text-bg-light">
+        <ul class="m-3 list-group list-group-flush">
+            <li class="list-group-item">ID: ${ID}</li>
+            <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+            <li class="list-group-item">GitHub: <a href="www.github.com/${github}>${github}</a></li>
+        </ul>
+    </div>`
+}
+
 function generateCard(employee) {       
         switch (employee.getRole()) {
         case 'Manager':
