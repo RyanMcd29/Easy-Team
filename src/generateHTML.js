@@ -7,23 +7,25 @@ var teamHTML = []
 
 function addManager(employee) {
     let name = employee.getName()
-    let role = employee.getRole()
     let ID = employee.getID()
     let email = employee.getEmail()
     let officeNumber = employee.getOffice()
 
     return `
-<div class="card" style="width: 18rem;">
+    <div class="card mb-3" style="width: 18rem;">
+    <div class="text-bg-primary">
+      <h3 class="card-title px-4 pt-4">${name}</h3>
+      <h4 class="card-title px-4 py-0">💼 Manager</h4>
 
-    <div class="card-header">${name}</div>
-    <div class="card-body">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${ID}</li>
-            <li class="list-group-item">Email: ${email}</li>
-            <li class="list-group-item">Office Number: ${officeNumber}</li>
-         </ul>
     </div>
-</div>`
+
+    <div class="card-body text-bg-light">
+        <ul class="m-3 list-group list-group-flush">
+            <li class="list-group-item">ID: ${ID}</li>
+            <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+            <li class="list-group-item">Office Number: ${officeNumber}</li>
+        </ul>
+    </div>`
 }
 
 function generateCard(employee) {       
