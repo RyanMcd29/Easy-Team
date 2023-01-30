@@ -78,7 +78,7 @@ function generateCard(employee) {
         switch (employee.getRole()) {
         case 'Manager':
             return addManager(employee)
-        case 'Enginer':
+        case 'Engineer':
             return addEngineer(employee)
         case'Intern':
             return addIntern(employee)
@@ -90,11 +90,12 @@ function generateHeading(myTeam) {
 }
 
 function generateHTML(myTeam) {
-    generateHeading(myTeam)
+    heading = generateHeading(myTeam)
     myTeam.forEach(employee => {
         teamHTML.push(generateCard(employee))
     })
-    console.log(teamHTML); 
+    console.log(teamHTML.toString());
+     
 }
 
 
