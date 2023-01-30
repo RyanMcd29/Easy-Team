@@ -11,12 +11,11 @@ const myTeam = []
 function writeToFile() {
     fileName = `${myTeam[0].name}'s-Team.html`
     // Make copy of template
-    fs.copyFile('./src/template.html', `./dist/${fileName}`, (err) => {
+    fs.writeFile(`./dist/${fileName}`, generateHTML(myTeam), (err) => {
         if (err) {
             console.log("Error found:", err)
         }
     })
-    generateHTML(myTeam, fileName)
 }
 
 function inputNextEmployee() {
