@@ -13,18 +13,17 @@ function addManager(employee) {
 
     return `
     <div class="card mb-3" style="width: 18rem;">
-    <div class="text-bg-primary">
-      <h3 class="card-title px-4 pt-4">${name}</h3>
-      <h4 class="card-title px-4 py-0">💼 Manager</h4>
-
-    </div>
-
-    <div class="card-body text-bg-light">
-        <ul class="m-3 list-group list-group-flush">
-            <li class="list-group-item">ID: ${ID}</li>
-            <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
-            <li class="list-group-item">Office Number: ${officeNumber}</li>
-        </ul>
+        <div class="text-bg-primary">
+            <h3 class="card-title px-4 pt-4">${name}</h3>
+            <h4 class="card-title px-4 py-0">💼 Manager</h4>
+        </div>
+        <div class="card-body text-bg-light">
+            <ul class="m-3 list-group list-group-flush">
+                <li class="list-group-item">ID: ${ID}</li>
+                <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+                <li class="list-group-item">Office Number: ${officeNumber}</li>
+            </ul>
+        </div>
     </div>`
 }
 
@@ -36,18 +35,17 @@ function addEngineer(employee) {
 
     return `
     <div class="card mb-3" style="width: 18rem;">
-    <div class="text-bg-primary">
-      <h3 class="card-title px-4 pt-4">${name}</h3>
-      <h4 class="card-title px-4 py-0">🧰 Engineer</h4>
-
-    </div>
-
-    <div class="card-body text-bg-light">
-        <ul class="m-3 list-group list-group-flush">
-            <li class="list-group-item">ID: ${ID}</li>
-            <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
-            <li class="list-group-item">GitHub: <a href="www.github.com/${github}>${github}</a></li>
-        </ul>
+        <div class="text-bg-primary">
+            <h3 class="card-title px-4 pt-4">${name}</h3>
+            <h4 class="card-title px-4 py-0">🧰 Engineer</h4>
+        </div>
+        <div class="card-body text-bg-light">
+            <ul class="m-3 list-group list-group-flush">
+                <li class="list-group-item">ID: ${ID}</li>
+                <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+                <li class="list-group-item">GitHub: <a href="www.github.com/${github}">${github}</a></li>
+            </ul>
+        </div>
     </div>`
 }
 
@@ -59,18 +57,18 @@ function addIntern(employee) {
 
     return `
     <div class="card mb-3" style="width: 18rem;">
-    <div class="text-bg-primary">
-      <h3 class="card-title px-4 pt-4">${name}</h3>
-      <h4 class="card-title px-4 py-0">🎓 Intern</h4>
+        <div class="text-bg-primary">
+            <h3 class="card-title px-4 pt-4">${name}</h3>
+            <h4 class="card-title px-4 py-0">🎓 Intern</h4>
+        </div>
 
-    </div>
-
-    <div class="card-body text-bg-light">
-        <ul class="m-3 list-group list-group-flush">
-            <li class="list-group-item">ID: ${ID}</li>
-            <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
-            <li class="list-group-item">School: ${school}</li>
-        </ul>
+        <div class="card-body text-bg-light">
+            <ul class="m-3 list-group list-group-flush">
+                <li class="list-group-item">ID: ${ID}</li>
+                <li class="list-group-item">Email: <a href="mailto:${email}">${email}</a></li>
+                <li class="list-group-item">School: ${school}</li>
+            </ul>
+        </div>
     </div>`
 }
 
@@ -96,7 +94,9 @@ function generateHTML(myTeam) {
     myTeam.forEach(employee => {
         teamHTML.push(generateCard(employee))
     })
+    teamHTML.join(' ')
     teamHTML = teamHTML.toString();
+    
     return `
     <!DOCTYPE html>
     <html lang="en">
