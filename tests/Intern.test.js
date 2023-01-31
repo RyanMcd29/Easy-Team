@@ -35,7 +35,7 @@ describe("Intern", () => {
             })
         })
         describe("getSchool", () => {
-            it("Should return the employee's role", () => {
+            it("Should return the intern's school", () => {
                 expect (i.getSchool()).toBe('UWA')
             })
         })

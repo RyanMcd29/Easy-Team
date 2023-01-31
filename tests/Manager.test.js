@@ -35,8 +35,8 @@ describe("Manager", () => {
             })
         })
         describe("getSchool", () => {
-            it("Should return the employee's role", () => {
-                expect (m.getSchool()).toBe('12')
+            it("Should return the manager's office number", () => {
+                expect (m.getOffice()).toBe('12')
             })
         })
     }) 
