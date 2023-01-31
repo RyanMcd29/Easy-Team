@@ -1,6 +1,6 @@
 const Intern = require('../lib/intern')
 
-describe("intern", () => {
+describe("Intern", () => {
     let i = new Intern('Jane', '342', 'jane@test', 'Intern', `UWA`);
     
     describe("class", () => {
