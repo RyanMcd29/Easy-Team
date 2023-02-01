@@ -8,6 +8,15 @@ const fs = require('fs')
 
 const myTeam = []
 
+function validateEmail(email) {
+    if (/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email)) {
+        return true
+    } else {
+        console.log(', please enter a valid Email')
+        return false
+    } 
+}
+
 function writeToFile() {
     fileName = `${myTeam[0].name}'s-Team.html`
     // Make copy of template
@@ -65,6 +74,10 @@ function createManager() {
             type: 'input',
             message: "What is their email?",
             name: 'email',
+            validate: function(email){
+                return validateEmail(email)
+            },
+
         },
         {
             type: 'input',
@@ -101,6 +114,9 @@ function createNewEmgineer() {
             type: 'input',
             message: "What is their email?",
             name: 'email',
+            validate: function(email){
+                return validateEmail(email)
+            },
         },
         {
             // Get engineer github
@@ -139,6 +155,9 @@ function createNewIntern() {
             type: 'input',
             message: "What is their email?",
             name: 'email',
+            validate: function(email){
+                return validateEmail(email)
+            },
         },
         {
             // Get intern school
