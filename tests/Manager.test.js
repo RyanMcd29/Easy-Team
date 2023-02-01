@@ -4,7 +4,7 @@ describe("Manager", () => {
     let m = new Manager('Alfred', '932', 'Alfred@test', 'Manager', `12`);
     
     describe("class", () => {
-        it("Should save the user's input", () => {
+        it("Should return the user's input", () => {
             expect (m.name).toBe('Alfred');
             expect (m.id).toBe('932');
             expect (m.email).toBe('Alfred@test');

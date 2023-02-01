@@ -4,7 +4,7 @@ describe("Engineer", () => {
     let m = new Engineer('Sam', '123', 'Sam@test', 'Engineer', `exGitHub`);
     
     describe("class", () => {
-        it("Should save the user's input", () => {
+        it("Should return the user's input", () => {
             expect (m.name).toBe('Sam');
             expect (m.id).toBe('123');
             expect (m.email).toBe('Sam@test');
