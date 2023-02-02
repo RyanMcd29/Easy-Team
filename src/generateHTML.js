@@ -116,7 +116,7 @@ function generateHTML(myTeam) {
           </nav>
         </header>
        
-        <section class ="container d-flex justify-content-center my-5">
+        <section class ="container d-flex flex-wrap justify-content-center my-5">
           ${teamHTML}
       </section>
     </body>`
